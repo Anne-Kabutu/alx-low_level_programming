@@ -1,19 +1,19 @@
 #include <stdio.h>
 
 /**
- * main - Prints numbers of base 16
+ * main - prints possible combinations of single digit numbers
  *
  * Return: Always (0)
  */
 int main(void)
 {
 	int a;
-	char b;
 
-	for (a = 0; a < 10; a++)
+	for (a = 0; a <= 9; a++)
 		putchar((a % 10) + '0');
-	for (b = 'b'; b <= 'f'; b++)
-		putchar(b);
+		if (a == 9)
+		putchar(',');
+		putchar(' ');
 	putchar('\n');
 	return (0);
 }
