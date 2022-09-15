@@ -1,32 +1,33 @@
 #include <stdio.h>
 
 /**
- * main - print 50 fibonacci numbers starting 1 and 2
+ * main - print even valued terms of fibonacci
  *
- * Return: 0
+ * Return: 0 for success
+ *
  */
 
 int main(void)
 {
-
-	int c;
-
 	long int n1, n2, fn;
+	long int sum;
 
 	n1 = 1;
 	n2 = 2;
+	sum = 0;
+	fn = 0;
 
-	printf("%ld, %ld", n1, n2);
-
-	for (c = 0; c < 48; c++)
+	while (fn < 4000000)
 	{
 		fn = n1 + n2;
-		printf(", %ld", fn);
-
 		n1 = n2;
 		n2 = fn;
-	}
-	printf("\n");
-	return (0);
 
+		if ((n1 % 2) == 0)
+		{
+			sum += n1;
+		}
+	}
+	printf("%ld\n", sum);
+	return (0);
 }
