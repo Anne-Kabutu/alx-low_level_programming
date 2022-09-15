@@ -8,7 +8,7 @@
  */
 void print_times_table(int n)
 {
-	int row, colum, product
+	int row, colum, product;
 
 	if (n >= 0 && n <= 15)
 	{
@@ -17,7 +17,7 @@ void print_times_table(int n)
 			for (colum = 0; colum <= n; colum++)
 			{
 				product = (row * colum);
-				if (col == 0)
+				if (colum == 0)
 				{
 					_putchar('0' + product);
 				}
