@@ -8,11 +8,11 @@
  */
 void print_diagonal(int n)
 {
-	int backslash, space;
+	int draw, space;
 
 	if (n > 0)
 	{
-		for (backslash = 1; backslash <= n; backslach++)
+		for (draw = 1; draw <= n; draw++)
 		{
 			for (space = 1; space < draw; space++)
 			{
@@ -22,7 +22,7 @@ void print_diagonal(int n)
 			_putchar('\n');
 		}
 	}
-	else
+	else 
 	{
 		_putchar('\n');
 	}
