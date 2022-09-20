@@ -2,13 +2,16 @@
 
 /**
  * rev_string - rverses a string
- * @ss: string to be reversed
+ * @s: string to be reversed
  *
  * Return: void
  */
 void rev_string(char *s)
 {
-	int i = 0; j = 0;
+	int i = 0;
+
+	j = 0;
+
 	char str[500];
 
 	while (*(s + i))
