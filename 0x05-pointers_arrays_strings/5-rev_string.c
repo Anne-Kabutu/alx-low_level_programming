@@ -15,10 +15,12 @@ void rev_string(char *s)
 		_putchar(*(s + index));
 		index++;
 	}
-	index = index - 1;
+	_putchar('\n');
+
 	while (index >= 0)
 	{
 		_putchar(*(s + index));
 		index--;
 	}
+	_putchar('\n');
 }
