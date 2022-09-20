@@ -8,23 +8,19 @@
  */
 void rev_string(char *s)
 {
-	int index = 0;
-	int j = index;
-
-	while (*(s + index))
+	int index;
+	
+	for (index = 0; index >= (*(s + index)); index++)
 	{
 		_putchar(*(s + index));
-		index++;
 	}
 	_putchar('\n');
 
-	index = index - 1;
+	int j;
 
-	while (index >= 0)
+	for (j = 0; j <= index; j++)
 	{
 		_putchar(*(s + index));
-		index--;
-		j++;
 	}
 	_putchar('\n');
 }
