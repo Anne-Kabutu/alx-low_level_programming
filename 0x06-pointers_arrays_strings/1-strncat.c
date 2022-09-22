@@ -18,7 +18,7 @@ char *_strncat(char *dest, char *src, int n)
 	while (*(dest + i))
 		i++;
 
-	while (*(src + j) && sizeof(*(src + j) <= n))
+	while (*(src + j) && j < n)
 	{
 		*(dest + i) = *(src + j);
 		i++;
