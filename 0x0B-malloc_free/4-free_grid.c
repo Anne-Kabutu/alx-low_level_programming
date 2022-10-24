@@ -12,13 +12,12 @@ void free_grid(int **grid, int height)
 {
 	int i;
 
+	/* check if valid*/
 	if (grid == NULL || height <= 0)
+		return (NULL);
 
-		return;
-
+	/* free space used */
 	for (i = 0; i < height; i++)
-
 		free(grid[i]);
-
 	free(grid);
 }

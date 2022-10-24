@@ -11,31 +11,40 @@
 int **alloc_grid(int width, int height)
 {
 	int i, j;
-	int **a;
+	int **grid;
 
+	/* check if input valid */
 	if (width <= 0 || height <= 0)
 		return (NULL);
 
-	a = (int **)malloc(sizeof(int *) * height);
+	/* height mem allocation*/
+	grid = malloc(sizeof(int *) * height);
 
-	if (a == NULL)
-
+	/* if mem is not available */
+	if (grid == NULL)
 		return (NULL);
 
+	/* width mem allocation*/
 	for (i = 0; i < height; i++)
 	{
-		a[i] = (int *)malloc(sizeof(int) * width);
-		if (a[i] == NULL)
+		grid[i] = malloc(sizeof(int *) * width);
+
+		/*checking mem allocation*/
+		if (grid[i] == NULL)
 		{
+			/* freeing used memory*/
 			for (j = 0; j < i; j++)
-				free(a[j]);
-			free(a);
+				free(grid[j]);
+
+			free(grid);
 			return (NULL);
 		}
+
+		/* initiallizing grid to 0 */
 		for (j = 0; j < width; j++)
 		{
-			a[i][j] = 0;
+			grid[i][j] = 0;
 		}
 	}
-	return (a);
+	return (grid);
 }

@@ -5,27 +5,32 @@
  * _strdup - copies a string given as parameters
  * @str: string to copy
  *
- * Return: pointer to string copy or NULL if str = NULL
+ * Return: pointer to copied string or NULL if str = NULL
  */
 char *_strdup(char *str)
 {
-	unsigned int i, j;
-	char *p;
+	unsigned int i;
+	char *dupstr;
 
+	/*if str = NULL, return NULL */
 	if (str == NULL)
 		return (NULL);
-	for (i = 0; s[i]; i++)
-		;
-	i++;
-	p = malloc(i * sizeof(char));
 
-	if (p == NULL)
+	/* allocating memory for duplicate string */
+	dupstr = malloc(sizeof(str));
+
+	/* when space is not available*/
+	if (dupstr == NULL)
 	{
 		return (NULL);
 	}
-	for (j = 0; j < i; j++;)
+
+	/* duplicating the string*/
+	for (i = 0; str[i]; i++)
 	{
-		str[j] = p[j];
+		dupstr[i] = str[i];
 	}
-	return (p);
+
+	/* return pointer to duplicate string*/
+	return (dupstr);
 }
