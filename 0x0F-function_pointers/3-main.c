@@ -14,24 +14,25 @@ int main(int argc, char *argv[])
 	int a, b, c;
 	int (*f)(int, int);
 
+	/* verify input is 3 arguments */
 	if (argc != 4)
 	{
 		printf("Error\n");
-
 		exit(98);
 	}
+	/* convert args to int */
 	a = atoi(argv[1]);
 	b = atoi(argv[3]);
 	f = get_op_func(argv[2]);
 
+	/* verify operator */
 	if (f == NULL)
 	{
 		printf("Error\n");
-
 		exit(99);
 	}
+	/* perfom the operation */
 	c = f(a, b);
-
 	printf("%d\n", c);
 
 	return (0);

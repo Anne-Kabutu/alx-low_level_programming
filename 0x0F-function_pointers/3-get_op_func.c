@@ -2,10 +2,10 @@
 #include <string.h>
 
 /**
- * get_op_func - selects the correct operation toperform
- * @s: operation to perform
+ * get_op_func - selects function to perform operation
+ * @s: operator passed
  *
- * Return: pointer to the correct function
+ * Return: pointer to function that corresponds with operator
  */
 int (*get_op_func(char *s))(int, int)
 {
@@ -20,13 +20,14 @@ int (*get_op_func(char *s))(int, int)
 	int i;
 
 	i = 0;
+	/* verify the struct array (ops) input */
 	while (ops[i].op != NULL)
 	{
-		if (strcmp(s, ops[i].op) == 0)
-
-			break;
+		/* verify operator */
+		if (*s == *ops[i].op)
+			return (ops[i].f);
 
 		i++;
 	}
-	return (ops[i].f);
+	return (NULL);
 }

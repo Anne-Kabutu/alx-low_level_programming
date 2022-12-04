@@ -10,7 +10,8 @@
 
 void print_name(char *name, void (*f)(char *))
 {
+	/* verify input functions */
 	if (name != NULL && f != NULL)
-
+		/* return function pointer */
 		f(name);
 }
