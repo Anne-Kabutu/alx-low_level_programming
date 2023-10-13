@@ -4,5 +4,6 @@
 #include <stdio.h>
 
 void positive_or_negative(int i);
+/* checks if an int is positive or negative*/
 
 #endif /* MAIN_H */
