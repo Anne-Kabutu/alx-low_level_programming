@@ -33,7 +33,7 @@ int main(void)
 			printf("%d", num);
 		}
 
-		if (n < 100)
+		if (num < 100)
 		{
 			printf(" ");
 		}
