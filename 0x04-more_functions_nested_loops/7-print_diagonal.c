@@ -1,7 +1,7 @@
 #include "main.h"
 
 /**
- * print_diagonal - draws a diagonal on the terminal, a new line if n is 0 or less
+ * print_diagonal - draws a diagonal on the terminal
  * @n: number of \ to be printed
  *
  * Return: void
@@ -9,17 +9,25 @@
 
 void print_diagonal(int n)
 {
-	int space;
+	int space, slash;
 
-	if (!(n == 0))
+	if (n > 0)
 	{
-		for (space = 1; space < n; space++)
+		for (slash = 0; slash < n; slash++)
 		{
-			_putchar(' ');
+			for (space = 0; space < slash; space++)
+			{
+				_putchar(' ');
+			}
+
+			_putchar('\\');
+			_putchar('\n');
 		}
-		_putchar('\\');
+	}
+
+	if (n < 1)
+	{
 		_putchar('\n');
 	}
-	else
-		_putchar('\n');
+
 }

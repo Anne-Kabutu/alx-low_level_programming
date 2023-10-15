@@ -28,4 +28,13 @@ void print_line(int n);
 void print_diagonal(int n);
 /* draws a diagonal line on the terminal*/
 
+void print_square(int size);
+/* prints a square*/
+
+void print_triangle(int size);
+/* prints a triangle*/
+
+void print_number(int n);
+/* prints an int using _putchar funct only*/
+
 #endif
