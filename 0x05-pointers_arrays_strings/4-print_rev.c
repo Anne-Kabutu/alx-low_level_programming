@@ -11,9 +11,9 @@ void print_rev(char *s)
 {
 	int index = 0;
 
-	if (*(s + 0) == '\0')
+	if (*(s + index) == '\0')
 	{
-		_putchar(*(s + 0));
+		_putchar('\0');
 	}
 
 	else
