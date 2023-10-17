@@ -13,6 +13,11 @@ void print_rev(char *s)
 
 	while (*(s + index) != '\0')
 	{
+		if (*(s + index) == '\n')
+		{
+			index++;
+			continue;
+		}
 		index++;
 	}
 
@@ -21,4 +26,6 @@ void print_rev(char *s)
 		_putchar(*(s + index));
 		index--;
 	}
+
+	_putchar('\n');
 }
