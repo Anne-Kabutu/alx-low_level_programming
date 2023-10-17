@@ -34,4 +34,7 @@ void print_array(int *a, int n);
 char *_strcpy(char *dest, char *src);
 /* copies string pointed by src to buffer pointed by dest*/
 
+int _atoi(char *s);
+/* */
+
 #endif /* _MAIN_H_*/
