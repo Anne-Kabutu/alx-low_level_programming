@@ -24,6 +24,8 @@ void print_rev(char *s)
 			index++;
 		}
 
+		index--;
+
 		while (!(index < 0))
 		{
 			_putchar(*(s + index));
