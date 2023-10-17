@@ -16,15 +16,19 @@ void print_rev(char *s)
 		_putchar(*(s + index));
 	}
 
-	while (*(s + index) != '\0')
+	else
 	{
-		index++;
-	}
 
-	while (!(index < 0))
-	{
-		_putchar(*(s + index));
-		index--;
+		while (*(s + index) != '\0')
+		{
+			index++;
+		}
+
+		while (!(index < 0))
+		{
+			_putchar(*(s + index));
+			index--;
+		}
 	}
 
 	_putchar('\n');
