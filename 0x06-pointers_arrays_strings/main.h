@@ -28,4 +28,22 @@ char *cap_string(char *);
 char *leet(char *);
 /* encodes a string into 1337*/
 
+char *rot13(char *);
+
+/**
+  * print_number - to print integers
+  */
+
+void print_number(int n);
+
+/**
+  * print_buffer - 10bytes ata time
+  */
+void print_buffer(char *b, int size);
+
+/**
+  * infinite_add - add two numbers
+  */
+char *infinite_add(char *n1, char *n2, char *r, int size_r);
+
 #endif /* _MAIN_H_*/
