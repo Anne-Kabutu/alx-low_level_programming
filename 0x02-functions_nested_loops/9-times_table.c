@@ -18,27 +18,25 @@ void times_table(void)
 		{
 			times = rows * colums;
 
-			if (times > 9)
-			{
-				_putchar((times / 10) + '0');
-				_putchar((times % 10) + '0');
-
-				if (colums < 9)
-				{
-					_putchar(' ');
-					_putchar(',');
-				}
-			}
-			else
+			if (colums == 0)
 			{
 				_putchar(times + '0');
+			}
 
-				if (colums < 9)
-				{
-					_putchar(' ');
-					_putchar(' ');
-					_putchar(',');
-				}
+			else if (times > 9)
+			{
+				_putchar(',');
+				_putchar(' ');
+				_putchar((times / 10) + '0');
+				_putchar((times % 10) + '0');
+			}
+
+			else
+			{
+				_putchar(',');
+				_putchar(' ');
+				_putchar(' ');
+				_putchar(times + '0');
 			}
 		}
 
