@@ -1,44 +1,35 @@
 #include <stdio.h>
 
 /**
- * main - prints all possible combinations of three numbers, no repeats
+ * main - prints possible combos of 3 nums without repeating
  *
- * Return: Always 0
+ * Return: always 0
  */
 
 int main(void)
 {
-	int num1, num2, num3;
+	int x, y, z;
 
-	num1 = '0';
-	num2 = num1 + 1;
-	num3 = num2 + 1;
-
-	while (num1 < '8')
+	for (x = '0'; x <= '9'; x++)
 	{
-		while (num2 < '9')
+		for (y = (x + 1); y <= '9'; y++)
 		{
-			while (num3 <= '9')
+			for (z = (y + 1); z < '9'; z++)
 			{
-				putchar(num1);
-				putchar(num2);
-				putchar(num3);
+				putchar(x);
+				putchar(y);
+				putchar(z);
 
-				if (num1 != '7' || num2 != '8' || num3 != '9')
+				if (x != '7' || y != '8' || z != '9')
 				{
 					putchar(',');
 					putchar(' ');
 				}
-				num3++;
 			}
-			num3 = num2 + 1;
-			num2++;
 		}
-		num2 = num1 + 1;
-		num1++;
 	}
-
 	putchar('\n');
 
 	return (0);
+
 }
