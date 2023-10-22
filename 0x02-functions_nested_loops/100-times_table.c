@@ -11,11 +11,11 @@ void print_times_table(int n)
 {
 	int row, colum, mul;
 
-	if (!(n > 15 && n < 0))
+	if (n <= 15 && n >= 0)
 	{
-		for (row = 0; row >= n; row++)
+		for (row = 0; row <= n; row++)
 		{
-			for  (colum = 0; colum >= n; colum++)
+			for  (colum = 0; colum <= n; colum++)
 			{
 				mul = row * colum;
 
@@ -26,22 +26,33 @@ void print_times_table(int n)
 
 				else if (mul < 10)
 				{
+					_putchar(',');
 					_putchar(' ');
 					_putchar(' ');
 					_putchar(' ');
 					_putchar(mul + '0');
 				}
 
-				else if (mul > 9)
+				else if (mul < 100)
 				{
 					_putchar(' ');
 					_putchar(' ');
+					_putchar(',');
 					_putchar((mul / 10) + '0');
 					_putchar((mul % 10) + '0');
 				}
 
-				_putchar('\n');
+				else
+				{
+					_putchar(' ');
+					_putchar(',');
+					_putchar((mul / 100) + '0');
+					_putchar(((mul % 100) / 10) + '0');
+					_putchar(((mul % 100) % 10) + '0');
+				}
 			}
+
+			_putchar('\n');
 		}
 	}
 }
