@@ -19,4 +19,16 @@ unsigned int _strspn(char *s, char *accept);
 char *_strpbrk(char *s, char *accept);
 /* searches a string for any of a set of bytes*/
 
+char *_strstr(char *haystack, char *needle);
+/* locates a substring*/
+
+void print_chessboard(char (*a)[8]);
+/* prints the chessboard*/
+
+void print_diagsums(int *a, int size);
+/* prints the sum of the two diagonals of a square matrix of integers*/
+
+void set_string(char **s, char *to);
+/* sets the value of a pointer to a char*/
+
 #endif /* _MAIN_H_*/

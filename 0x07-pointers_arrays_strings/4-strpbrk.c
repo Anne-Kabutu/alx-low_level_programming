@@ -5,20 +5,23 @@
  * @s: string to be searched
  * @accept: string to search
  *
- * Retrun: string after first occurence
+ * Return: string after first occurence
  */
 
 char *_strpbrk(char *s, char *accept)
 {
-	int index, i, old, new;
+	int index, i;
 
-	for (i = 0; accept[i] != '\0'; i++)
+	for (index = 0; s[index] != '\0'; index++)
 	{
-		for (index = 0; s[index] != '\0'; index++)
+		for (i = 0; accept[i] != '\0'; i++)
 		{
 			if (s[index] == accept[i])
 			{
-				new 			}
+				return (s + index);
+			}
 		}
 	}
+
+	return ('\0');
 }
