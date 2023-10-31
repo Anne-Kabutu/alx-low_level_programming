@@ -18,22 +18,16 @@ char *str_concat(char *s1, char *s2)
 		s1 = "";
 
 	if (s2 == NULL)
-		s2 == "";
+		s2 = "";
 
 	while (s1[i])
-	{
 		i++;
-	}
-	i--;
 
 	while (s2[index])
-	{
 		index++;
-	}
-	index--;
 
 	size = i + index;
-	catstr = (char *)malloc((sizeof(char) * size));
+	catstr = malloc((sizeof(char) * size) + 1);
 
 	if (catstr == NULL)
 		return (NULL);
@@ -42,7 +36,6 @@ char *str_concat(char *s1, char *s2)
 	{
 		catstr[ind] = s1[ind];
 	}
-
 	i = 0;
 
 	for (; ind < size; ind++)
@@ -50,8 +43,6 @@ char *str_concat(char *s1, char *s2)
 		catstr[ind] = s2[i];
 		i++;
 	}
-
 	catstr[size] = '\0';
-
 	return (catstr);
 }
