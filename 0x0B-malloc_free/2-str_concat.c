@@ -14,18 +14,26 @@ char *str_concat(char *s1, char *s2)
 	int index = 0, i = 0, ind, size;
 	char *catstr;
 
-	while (s1[i] != '\0')
+	if (s1 == NULL)
+		s1 = "";
+
+	if (s2 == NULL)
+		s2 == "";
+
+	while (s1[i])
 	{
 		i++;
 	}
+	i--;
 
-	while (s2[index] != '\0')
+	while (s2[index])
 	{
 		index++;
 	}
+	index--;
 
 	size = i + index;
-	catstr = (char *)malloc((sizeof(char) * size) + 1);
+	catstr = (char *)malloc((sizeof(char) * size));
 
 	if (catstr == NULL)
 		return (NULL);
