@@ -10,64 +10,103 @@
 
 char **strtow(char *str)
 {
-	char **strarr;
-	int index, i, row = 0;
+	int i, index = 0, size, col = 0;
+	char **strarr, *strcp = str;
 
-	if (str == NULL || *str == '\0')
+	if (str == NULL)
 		return (NULL);
 
-	/* finds the number of rows to create based on white spaces*/
-	for (i = 0; str[i] != '\0'; i++)
-	{
-		if (str[i] == '\t' || str[i] == ' ')
-		{
-			if (i > 0 && (str[i -1] != ' ') && (str[i - 1] != '\t'))
-			{
-				row++;
-			}
-		}
-	}
+	size = word_count(strcp);
 
-	/* allocate mem to the row array ptr*/
-	strarr = malloc(sizeof(char) * (row + 1));
+	strarr = alloc_mem(strcp, size);
 
 	if (strarr == NULL)
+		return (NULL);
+
+	for (i = 0; str[i] != '\0'; i++)
 	{
-		free(strarr);
-		return(NULL);
+		if (str[i] != ' ' || str[i] != '\t')
+		{
+			strarr[index][col] = str[i];
+			col++;
+		}
+
+		if (str[i + 1] == ' ' || str[i + 1] == '\t')
+		{
+			strarr[index][col] = '\0';
+			index++;
+			col = 0;
+		}
 	}
 
-	/* allocating space for each 1D array in the 2D array*/
-	i = 0;
-	while (str[i] != '\0')
+	return (strarr);
+}
+
+/**
+ * word-count - finds the number of words in the string
+ * @str: string to count
+ *
+ * Retrun: no of words
+ */
+
+int word_count(char *str)
+{
+	int i, words = 0;
+
+	if (str == NULL)
+		return (1);
+
+	for (i = 0; str[i] != '\0'; i++)
 	{
-		if (str[i] != ' ' && str[i] != '\t')
+		if (str[i] != ' ' ||  str[i] != '\t')
 		{
-			strarr[row] = malloc((sizeof(char) * 2));
-
-			if (strarr[row] == NULL)
-				return (NULL);
-
-			index = 0;
-
-			while (str[i] != ' ' && str[i] != '\t' && str[i] != '\0')
+			if (str[i - 1] == ' ' || str[i - 1] != '\t')
 			{
-				strarr[row][index] = str[i];
-				i++;
-				index++;
+				words++;
 			}
-
-			strarr[row][index] = '\n';
-			index++;
-			strarr[row][index] = '\0';
-
-			row++;
 		}
+	}
 
-		else
+	return (words);
+}
+
+/**
+ * alloc-mem - allocates memory to a 2D array
+ * @str: string to determine size
+ * @size: number of rows of the array
+ *
+ * Retrun: pointer to mem allocated
+ */
+
+char **alloc_mem(char *str, int size)
+{
+	char **strarr;
+	int i, index = 0, len = 0;
+
+	strarr = malloc(sizeof(char) * size);
+
+	if (strarr == NULL)
+		return (NULL);
+
+	for (i = 0; str[i] != '\0'; i++)
+	{
+		if (str[i] != ' ' ||  str[i] != '\t')
 		{
-			i++;
+			len++;
 		}
+
+		if (str[i + 1] == ' ' || str[i + 1] == '\t')
+		{
+			len++;
+			strarr[index] = malloc(sizeof(char) * len);
+
+			if (strarr == NULL)
+			{
+				return (NULL);
+			}
+		}
+		len = 0;
+		index++;
 	}
 
 	return (strarr);
