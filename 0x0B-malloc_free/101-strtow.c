@@ -25,7 +25,7 @@ char **strtow(char *str)
 
 	for (i = 0; str[i] != '\0'; i++)
 	{
-		if (str[i] != ' ' || str[i] != '\t')
+		if (str[i] != ' ' && str[i] != '\t')
 		{
 			strarr[index][col] = str[i];
 			col++;
@@ -43,7 +43,7 @@ char **strtow(char *str)
 }
 
 /**
- * word-count - finds the number of words in the string
+ * word_count - finds the number of words in the string
  * @str: string to count
  *
  * Retrun: no of words
@@ -58,9 +58,9 @@ int word_count(char *str)
 
 	for (i = 0; str[i] != '\0'; i++)
 	{
-		if (str[i] != ' ' ||  str[i] != '\t')
+		if (str[i] != ' ' &&  str[i] != '\t')
 		{
-			if (str[i - 1] == ' ' || str[i - 1] != '\t')
+			if (i == 0 || str[i - 1] == ' ' || str[i - 1] != '\t')
 			{
 				words++;
 			}
@@ -71,7 +71,7 @@ int word_count(char *str)
 }
 
 /**
- * alloc-mem - allocates memory to a 2D array
+ * alloc_mem - allocates memory to a 2D array
  * @str: string to determine size
  * @size: number of rows of the array
  *
@@ -83,14 +83,14 @@ char **alloc_mem(char *str, int size)
 	char **strarr;
 	int i, index = 0, len = 0;
 
-	strarr = malloc(sizeof(char) * size);
+	strarr = (char **)malloc(sizeof(char *) * (size + 1));
 
 	if (strarr == NULL)
 		return (NULL);
 
 	for (i = 0; str[i] != '\0'; i++)
 	{
-		if (str[i] != ' ' ||  str[i] != '\t')
+		if (str[i] != ' ' &&  str[i] != '\t')
 		{
 			len++;
 		}
