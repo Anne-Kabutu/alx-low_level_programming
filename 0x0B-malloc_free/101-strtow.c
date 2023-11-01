@@ -31,11 +31,11 @@ char **strtow(char *str)
 			col++;
 		}
 
-		if (str[i + 1] == ' ' || str[i + 1] == '\t')
+		if ((col > 0) && (str[i + 1] == ' ' || str[i + 1] == '\t'))
 		{
 			strarr[index][col] = '\0';
-			index++;
 			col = 0;
+			index++;
 		}
 	}
 
@@ -60,7 +60,7 @@ int word_count(char *str)
 	{
 		if (str[i] != ' ' &&  str[i] != '\t')
 		{
-			if (i == 0 || str[i - 1] == ' ' || str[i - 1] != '\t')
+			if (i == 0 || str[i - 1] == ' ' || str[i - 1] == '\t')
 			{
 				words++;
 			}
@@ -93,21 +93,17 @@ char **alloc_mem(char *str, int size)
 		if (str[i] != ' ' &&  str[i] != '\t')
 		{
 			len++;
-		}
 
-		if (str[i + 1] == ' ' || str[i + 1] == '\t')
-		{
-			len++;
-			strarr[index] = malloc(sizeof(char) * len);
-
-			if (strarr == NULL)
+			if ((len > 0) && (str[i + 1] == ' ' || str[i + 1] == '\t'))
 			{
-				return (NULL);
+				strarr[index] = malloc(sizeof(char) * (len + 1));
+				len = 0;
+				index++;
 			}
 		}
-		len = 0;
-		index++;
 	}
+
+	strarr[size] = NULL;
 
 	return (strarr);
 }
