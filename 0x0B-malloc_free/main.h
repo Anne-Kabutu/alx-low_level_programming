@@ -25,4 +25,10 @@ char *argstostr(int ac, char **av);
 char **strtow(char *str);
 /* splits a string into words*/
 
+int word_count(char *str);
+/* calculates number of words in a string*/
+
+char **alloc_mem(char *str, int size);
+/* allocates mem to a 2D array*/
+
 #endif /* _MAIN_H_*/
