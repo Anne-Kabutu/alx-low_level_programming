@@ -1,55 +1,64 @@
 #include "main.h"
 #include <stdlib.h>
-#include <stdio.h>
 
 /**
-  * string_nconcat - concatenate two strings
-  * @s1: first string
-  * @s2: second string
-  * @n: limit
-  * Return: pointer
-  */
+ * string_nconcat - concatenates two strings
+ * @s1: first string
+ * @s2: second string
+ * @n: size of string two to copy
+ *
+ * Return: NULL for failure, or ponter to new mem
+ */
 
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-	int len1, len2, i, j, num;
-	char *concat_str;
-
-	num = n;
-	len1 = len2 = 0;
+	unsigned int i, index, size, cnt;
+	char *newstr;
 
 	if (s1 == NULL)
 		s1 = "";
-	if (s2 == NULL)
+
+	if (s2 ==NULL)
 		s2 = "";
 
-	if (num < 0) /*NEGATIVE SIZE*/
-		return (NULL);
+	for (i = 0; s1[i] != '\0'; i++)
+		;
 
-	for (i = 0; s1[i]; i++)
-		len1++;
+	for (index = 0; s2[index] != '\0'; index++)
+		;
 
-	for (j = 0; s2[j]; j++)
-		len2++;
-	if (num >= len2)
-		num = len2;
-
-	concat_str = malloc(sizeof(*concat_str) * (len1 + num + 1));
-
-	if (concat_str == NULL)
+	if (n < index)
 	{
-		free(concat_str);
-		return (NULL);
+		size = i + n;
 	}
 
-	for (i = 0; i < len1; i++)
-		concat_str[i] = s1[i];
+	if (n >= index)
+	{
+		size = index + i;
+	}
 
-	for (j = 0; j < num; i++, j++)
-		concat_str[i] = s2[j];
+	newstr = malloc(sizeof(char) * (size + 1));
 
-	concat_str[i] = '\0';
+	if (newstr == NULL)
+	{
+		free(newstr);
+		return(NULL);
+	}
 
-	return (concat_str);
+	for (cnt = 0; cnt < i; cnt++)
+	{
+		newstr[cnt] = s1[cnt];
+	}
 
+	i = 0;
+
+	for (; cnt < size; cnt++)
+	{
+		newstr[cnt] = s2[i];
+		i++;
+	}
+
+	newstr[i] = '\0';
+
+	return (newstr);
 }
