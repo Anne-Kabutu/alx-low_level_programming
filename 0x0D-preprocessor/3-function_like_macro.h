@@ -4,4 +4,4 @@
 #define ABS(x) (((x) < 0) ? -(x) : (x))
 /* finds the absolute num of an int*/
 
-#endif /* FUNCTION_LIKE_MACRO_H/
+#endif /* FUNCTION_LIKE_MACRO_H*/
