@@ -1,5 +1,5 @@
-#ifndef _MAIN_H_
-#define _MAIN_H_
+#ifndef _FUNCTION_POINTERS_H
+#define _FUNCTION_POINTERS_H
 
 void print_name(char *name, void (*f)(char *));
 /* prints a name*/
@@ -10,4 +10,4 @@ void array_iterator(int *array, size_t size, void (*action)(int));
 int int_index(int *array, int size, int (*cmp)(int));
 /* searches for an integer*/
 
-#endif /* _MAIN_H_*/
+#endif /* _FUNCTION_POINTERS_H*/
